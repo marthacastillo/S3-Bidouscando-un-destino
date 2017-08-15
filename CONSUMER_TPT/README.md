@@ -2,7 +2,7 @@
 ## Qué es
 Creo que es  en un poco intuitiva la definicón de este operador, este operador consume datos del stream de datos para escribirlos ya sea a TERADATA o un destino externo, como un archivo plano o HDFS.
 ## Tipos de operadores Consumer
-En  imagen se pueden apreciar los diferentes tipos d e operadores consumer.
+* En esta imagen se pueden apreciar los diferentes tipos d e operadores consumer.
 ![operador](operator.png)
 ## Extracción de datos y enviarlos directamente a HDFS
 * Para este job el flujo sería el siguiente:
@@ -51,7 +51,7 @@ ssh user@host --> Cuando iniciemos sesión no se nos debe solicitar contraseña
   </property>
   <property>
       <name>mapreduce.jobtracker.address</name>
-      <value>TDExpress16:9001</value>
+      <value>hostname:9001</value>
 </property>
 </configuration>
 ```
