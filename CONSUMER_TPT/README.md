@@ -55,3 +55,75 @@ ssh user@host --> Cuando iniciemos sesión no se nos debe solicitar contraseña
 </property>
 </configuration>
 ```
+## TPT
+* Archivo del job
+
+```
+DEFINE JOB TERADATA_TO_HDFS
+DESCRIPTION 'export a table to hdfs'
+(
+DEFINE SCHEMA SCHEMA_EMP FROM TABLE 'NEW_DATA';        
+ DEFINE OPERATOR READER_T
+        DESCRIPTION 'export'
+        TYPE EXPORT
+        SCHEMA SCHEMA_EMP
+        ATTRIBUTES(
+                VARCHAR SOURCETDPID             = @SOURCETDPID,
+                VARCHAR UserName                = @SourceUserName,
+                VARCHAR UserPassword            = @SourceUserPassword,
+                VARCHAR WorkingDatabase         = @SourceWorkingDatabase,
+                VARCHAR SelectStmt              = @ExportSelectStmt		
+
+              );
+
+
+       DEFINE OPERATOR WRITER
+        DESCRIPTION 'writte to hdfs'
+        TYPE DATACONNECTOR CONSUMER
+        SCHEMA SCHEMA_EMP
+        ATTRIBUTES(
+
+                VARCHAR HadoopHost              = @FileWriterHadoopHost,                  
+                VARCHAR HadoopJobType           = @FileWriterHadoopJobType,
+                VARCHAR HadoopSeparator         = @FileWriterHadoopSeparator,
+                VARCHAR HadoopTargetPaths       = @FileWriterHadoopTargetPaths,
+                VARCHAR HadoopUser              = @FileWriterHadoopUser,
+                INTEGER HadoopNumMappers        = @FileWriterHadoopNumMappers
+        );
+
+        APPLY TO OPERATOR (
+                WRITER[1]
+        )
+
+        SELECT * FROM OPERATOR (
+                READER_T[1]
+        );
+
+
+);
+```
+* Archivo de Parámetros
+
+```
+SOURCETDPID                     = 'XXXX'
+SourceUserName                  = 'XXXX'
+SourceUserPassword              = 'XXXX'
+SourceWorkingDatabase           = 'XXXX'
+ExportSelectStmt                = 'select * from XXXX;'
+
+FileWriterHadoopHost            = 'hostname'
+FileWriterHadoopJobType         = 'hdfs'
+FileWriterHadoopSeparator       = ','                
+TargetOpenMode                  = 'Write'
+FileWriterHadoopTargetPaths     = 'hdfs://hostname:8020/landing_zone/teradata/'
+FileWriterHadoopUser            = 'hadoop'
+FileWriterHadoopNumMappers      = 1
+```
+* ejecutamos el job de TPT
+```
+tbuild -f job -v archivo de parametros
+```
+* Renombramos el archivo para que el  formato sea csv
+```
+hdfs dfs -mv /landing_zone/teradata/part-m-00000 /landing_zone/teradata/file.csv
+```
