@@ -123,7 +123,7 @@ FileWriterHadoopNumMappers      = 1
 ```
 tbuild -f job -v archivo de parametros
 ```
-* Renombramos el archivo para que el  formato sea csv
+* Comprabos que efectivamente se haya hecho la extracción
 ```
-hdfs dfs -mv /landing_zone/teradata/part-m-00000 /landing_zone/teradata/file.csv
+hdfs dfs -ls /landing_zone/teradata/
 ```
