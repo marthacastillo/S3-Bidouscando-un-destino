@@ -1,0 +1,1 @@
+Metricas a Kafka
