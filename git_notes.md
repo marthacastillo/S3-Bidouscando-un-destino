@@ -23,3 +23,6 @@ ted. If it has been modified and was added to the staging area, it is staged. An
 if it was changed since it was checked out but has not been staged, it is modi-
 fied.In Chapter 2, you’ll learn more about these states and how you can either
 take advantage of them or skip the staged part entirely.
+
+Each file in your working directory can be in one of two
+states: tracked or untracked. 
