@@ -26,3 +26,24 @@ take advantage of them or skip the staged part entirely.
 
 Each file in your working directory can be in one of two
 states: tracked or untracked. 
+
+#### .gitignore file
+
+Here is another example .gitignore file:
+```
+# no .a files
+*.a
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+# ignore all files in the build/ directory
+build/
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+# ignore all .pdf files in the doc/ directory
+doc/**/*.pdf
+```
+- GitHub maintains a fairly comprehensive list of good .gitignore file ex-
+amples for dozens of projects and languages at https://github.com/github/
+gitignore if you want a starting point for your project.
