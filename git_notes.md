@@ -154,3 +154,23 @@ the first
 - To discard changes in a working directory.It means that if you do not want to keep changes in a file in working directory. 
 
 `git checkout -- file`
+
+#### Remotes
+
+- To see which remote servers you have configured, you can run
+
+`git remote`
+ 
+ command.
+ 
+ - Origin is the dedault name Git gives to the server you  cloned from, so when you run the above command, the most probably output would be `origin`
+ 
+ - And with the -v flag, git shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
+ 
+`git remote -v`
+
+ 
+ 
+
+ 
+
