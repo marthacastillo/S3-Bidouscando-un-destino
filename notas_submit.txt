@@ -1,0 +1,40 @@
+Quitar carpetas
+
+
+landing_zone/por_recuperar
+landing_zone/no_recuperado
+/raw/data.avro
+
+ejecutar en /home/carlos/S3-Buscando-un-destino/confluent-3.1.1
+
+sudo bin/zookeeper-server-start etc/kafka/zookeeper.properties 
+
+sudo bin/kafka-server-start etc/kafka/server.properties 
+
+bin/kafka-console-consumer --bootstrap-server localhost:9092 -topic test --from-beginning
+
+
+
+
+##Comando para correr el submit desde /home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6:
+
+
+`sudo bin/spark-submit --jars file:/home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6/jars/commons-csv-1.1.jar,file:/home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6/jars/spark-avro_2.10-2.0.1.jar,file:/home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6/jars/spark-csv_2.10-1.3.2.jar,file:/home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6/jars/univocity-parsers-1.5.1.jar,file:/home/carlos/S3-Buscando-un-destino/spark-1.6.2-bin-hadoop2.6/jars/kafka-clients-0.10.1.0.jar --class com.mydatio.app.myapp /home/carlos/S3-Buscando-un-destino/scalakafkaproject/target/scala-kafka-project-1.0-SNAPSHOT.jar`
+
+
+To run the second script
+
+sudo bin/spark-shell --packages com.databricks:spark-avro_2.10:2.0.1,com.databricks:spark-csv_2.10:1.5.0,org.apache.spark:spark-streaming-kafka_2.10:1.6.0 -i App.scala 
+
+
+
+
+
+
+maven verison 3.3.9
+
+[info] This is sbt 1.0.0
+
+
+
+
