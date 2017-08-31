@@ -169,6 +169,36 @@ the first
  
 `git remote -v`
 
+#### Adding remote repositories
+
+- We know how to clone a remote repo:
+  
+  ` git clone <url>`
+
+-But a more fancy way to do it. To add a new remote Git repository as a shortname you can reference easily:
+
+`run git add <shortname> <url>`
+
+
+#### Fetching and Pulling from Your Remotes
+
+- To get the data that has been pushed to that sever since you cloned (or last fetched) of this repo:
+
+`git fetch <shortname> `
+
+That command only downloads data to local repository -
+
+- To do a pull of this repo:
+   
+ ` git pull <shortname> <branch> `
+ 
+ automaticaly fetch an d then merge a remote branch into your current branch. 
+ 
+
+
+
+
+
  
  Adding a line to see how pull works:
 
