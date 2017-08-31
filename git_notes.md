@@ -170,7 +170,7 @@ the first
 `git remote -v`
 
  
- 
+ Adding a line to see how pull works:
 
  
 
