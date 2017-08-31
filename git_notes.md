@@ -179,14 +179,20 @@ the first
 
 `run git add <shortname> <url>`
 
-- To get the dat of this repo:
+
+#### Fetching and Pulling from Your Remotes
+
+- To get the data that has been pushed to that sever since you cloned (or last fetched) of this repo:
 
 `git fetch <shortname> `
+
+That command only downloads data to local repository -
 
 - To do a pull of this repo:
    
  ` git pull <shortname> <branch> `
  
+ automaticaly fetch an d then merge a remote branch into your current branch. 
  
 
 
