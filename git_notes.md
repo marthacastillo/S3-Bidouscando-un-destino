@@ -208,6 +208,126 @@ That command only downloads data to local repository -
 
 The contents of files are not actually stored in the index (.git/index) or in commit objects. Rather, each file is stored in the object database (.git/objects) as a blob, identified by its SHA-1 hash. The index file lists the filenames along with the identifier of the associated blob, as well as some other data. For commits, there is an additional data type, a tree, also identified by its hash. Trees correspond to directories in the working directory, and contain a list of trees and blobs corresponding to each filename within that directory. Each commit stores the identifier of its top-level tree, which in turn contains all of the blobs and other trees associated with that commit.
  
+###Walkthrough: Watching the effect of commands
+
+Start by creating some repository:
+```
+$ git init foo
+$ cd foo
+$ echo 1 > myfile
+$ git add myfile
+$ git commit -m "version 1"
+```
+Now, define the following functions to help us show information in a file show_status.sh:
+```
+show_status() {
+  echo "HEAD:     $(git cat-file -p HEAD:myfile)"
+  echo "Stage:    $(git cat-file -p :myfile)"
+  echo "Worktree: $(cat myfile)"
+}
+
+initial_setup() {
+  echo 3 > myfile
+  git add myfile
+  echo 4 > myfile
+  show_status
+}
+```
+Initially, everything is at version 1.
+```
+$ show_status
+HEAD:     1
+Stage:    1
+Worktree: 1
+```
+
+We can watch the state change as we add and commit.
+```
+$ echo 2 > myfile
+$ show_status
+HEAD:     1
+Stage:    1
+Worktree: 2
+$ git add myfile
+$ show_status
+HEAD:     1
+Stage:    2
+Worktree: 2
+$ git commit -m "version 2"
+[master 4156116] version 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ show_status
+HEAD:     2
+Stage:    2
+Worktree: 2
+```
+
+Now, let's create an initial state where the three are all different.
+```
+$ initial_setup
+HEAD:     2
+Stage:    3
+Worktree: 4
+```
+Let's watch what each command does. You will see that they match the diagrams above.
+
+git reset -- myfile copies from HEAD to stage:
+
+```
+$ initial_setup
+HEAD:     2
+Stage:    3
+Worktree: 4
+$ git reset -- myfile
+Unstaged changes after reset:
+M   myfile
+$ show_status
+HEAD:     2
+Stage:    2
+Worktree: 4
+```
+git checkout -- myfile copies from stage to worktree:
+```
+$ initial_setup
+HEAD:     2
+Stage:    3
+Worktree: 4
+$ git checkout -- myfile
+$ show_status
+HEAD:     2
+Stage:    3
+Worktree: 3
+```
+
+
+git checkout HEAD -- myfile copies from HEAD to both stage and worktree:
+```
+$ initial_setup
+HEAD:     2
+Stage:    3
+Worktree: 4
+$ git checkout HEAD -- myfile
+$ show_status
+HEAD:     2
+Stage:    2
+Worktree: 2
+```
+git commit myfile copies from worktree to both stage and HEAD:
+```
+$ initial_setup
+HEAD:     2
+Stage:    3
+Worktree: 4
+$ git commit myfile -m "version 4"
+[master 679ff51] version 4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ show_status
+HEAD:     4
+Stage:    4
+Worktree: 4
+
+```
+The important part is:
 
 git reset -- myfile COPIES from HEAD to stage:
 
@@ -216,4 +336,6 @@ git checkout -- myfile COPIES from stage to worktree:
 git checkout HEAD -- myfile COPIES from HEAD to both stage and worktree:
 
 git commit myfile COPIES from worktree to both stage and HEAD: 
+
+
 
