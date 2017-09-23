@@ -1,5 +1,12 @@
 ### About git book 
 
+[Link to think like a git:]
+(http://think-like-a-git.net)
+
+[Link to a visual git reference:]
+(http://marklodato.github.io/visual-git-guide/index-en.html)
+
+
 #### There are three stages that the files can reside in:
 1. Commited: the data is safely store in your local database
 2. Modified: it means that you have chenged the file but have not commited it to the databasse yet
@@ -195,12 +202,12 @@ That command only downloads data to local repository -
  automaticaly fetch an d then merge a remote branch into your current branch. 
  
 
+### checkout is to copy files and switch betweem branches:
 
+###Technical Notes from visual guide:
 
-
-
+The contents of files are not actually stored in the index (.git/index) or in commit objects. Rather, each file is stored in the object database (.git/objects) as a blob, identified by its SHA-1 hash. The index file lists the filenames along with the identifier of the associated blob, as well as some other data. For commits, there is an additional data type, a tree, also identified by its hash. Trees correspond to directories in the working directory, and contain a list of trees and blobs corresponding to each filename within that directory. Each commit stores the identifier of its top-level tree, which in turn contains all of the blobs and other trees associated with that commit.
  
- Adding a line to see how pull works:
 
  
 
