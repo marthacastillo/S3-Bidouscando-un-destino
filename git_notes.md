@@ -209,5 +209,11 @@ That command only downloads data to local repository -
 The contents of files are not actually stored in the index (.git/index) or in commit objects. Rather, each file is stored in the object database (.git/objects) as a blob, identified by its SHA-1 hash. The index file lists the filenames along with the identifier of the associated blob, as well as some other data. For commits, there is an additional data type, a tree, also identified by its hash. Trees correspond to directories in the working directory, and contain a list of trees and blobs corresponding to each filename within that directory. Each commit stores the identifier of its top-level tree, which in turn contains all of the blobs and other trees associated with that commit.
  
 
- 
+git reset -- myfile COPIES from HEAD to stage:
+
+git checkout -- myfile COPIES from stage to worktree:
+
+git checkout HEAD -- myfile COPIES from HEAD to both stage and worktree:
+
+git commit myfile COPIES from worktree to both stage and HEAD: 
 
