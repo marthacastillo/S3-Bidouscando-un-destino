@@ -1,5 +1,5 @@
 ### About git book 
-
+...
 [Link to think like a git:]
 (http://think-like-a-git.net)
 
