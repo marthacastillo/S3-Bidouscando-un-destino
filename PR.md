@@ -1,6 +1,9 @@
 ## CREATING A PULL REQUEST
 
-- This guide is created if you do not have write acces to a project.
+- This tutorial is in case you do not have write acces to a project, if you have, skip the fork part. 
+
+First you need to have installed git, if not, follow this [guide](https://git-scm.com/download).
+
 
 ### Fork the project:
 
@@ -8,6 +11,7 @@ Do a fork is get a remote personal copy of a project.
 
 Go to main page of the repo you want to colaborate with, and click the Fork button in the top-right corner. 
 
+![](https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png)
 
 ### Clone the fork of the project locally:
 
@@ -33,26 +37,26 @@ Before make any change, be sure you are in the branch you created.
 
  Make commit:
 
-``` git add file
-    git commit -m "message"
+``` 
+git add file
+git commit -m "message"
 ```
 
-### Push the branch to our GitHub fork:
+### Push the branch to your GitHub fork:
 
 `git push origin my_branch` 
 
-To confirm your changes are available in the github fork, go to the github.com/your_user/project in the branch my_branch. 
+To confirm your changes are available in the github fork, go to the `github.com/your_user/project` in the branch `my_branch`. 
 
 Here, you should see the changes you made before and that mean your remote copy is updated. 
 
 ### Open a Pull Request on GitHub:
 
-Go to the github.com/your_user/project in the branch my_branch and click the button "New Pull Request".
+Go to the `github.com/your_user/project` in the branch `my_branch` and click the button "New Pull Request".
 
 Then, you will see a window where you can give a title and description to the Pull Request. This is important because let to the original owner of the project determine what you were trying to do, whether your proposed changes are correct, and whether accepting the changes would improve the original project.
 
 And hit the Create pull request button on this screen. 
-
 
  
 ## If you have write acces to the project you do not need to do the fork to create a PR:
