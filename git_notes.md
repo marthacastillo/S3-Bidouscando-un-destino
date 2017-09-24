@@ -337,5 +337,7 @@ git checkout HEAD -- myfile COPIES from HEAD to both stage and worktree:
 
 git commit myfile COPIES from worktree to both stage and HEAD: 
 
+###Tutorial to do a PR
 
+https://github.com/AeroPython/PyFME/wiki/Tutorial-paso-a-paso-del-flujo-de-trabajo
 
