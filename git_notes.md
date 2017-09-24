@@ -1,10 +1,8 @@
 ### About git book 
 ...
-[Link to think like a git:]
-(http://think-like-a-git.net)
+[Link to think like a git](http://think-like-a-git.net)
 
-[Link to a visual git reference:]
-(http://marklodato.github.io/visual-git-guide/index-en.html)
+[Link to a visual git reference](http://marklodato.github.io/visual-git-guide/index-en.html)
 
 
 #### There are three stages that the files can reside in:
@@ -204,11 +202,11 @@ That command only downloads data to local repository -
 
 ### checkout is to copy files and switch betweem branches:
 
-###Technical Notes from visual guide:
+#### Technical Notes from visual guide:
 
 The contents of files are not actually stored in the index (.git/index) or in commit objects. Rather, each file is stored in the object database (.git/objects) as a blob, identified by its SHA-1 hash. The index file lists the filenames along with the identifier of the associated blob, as well as some other data. For commits, there is an additional data type, a tree, also identified by its hash. Trees correspond to directories in the working directory, and contain a list of trees and blobs corresponding to each filename within that directory. Each commit stores the identifier of its top-level tree, which in turn contains all of the blobs and other trees associated with that commit.
  
-###Walkthrough: Watching the effect of commands
+#### Walkthrough: Watching the effect of commands
 
 Start by creating some repository:
 ```
@@ -337,7 +335,7 @@ git checkout HEAD -- myfile COPIES from HEAD to both stage and worktree:
 
 git commit myfile COPIES from worktree to both stage and HEAD: 
 
-###Tutorial to do a PR
+### Tutorial to do a PR
 
 https://github.com/AeroPython/PyFME/wiki/Tutorial-paso-a-paso-del-flujo-de-trabajo
 
