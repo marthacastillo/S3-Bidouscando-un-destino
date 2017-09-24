@@ -8,7 +8,7 @@ First you need to have installed git, if not, follow this [guide](https://git-sc
 
 ### Fork the project:
 
-Do a fork is get a remote personal copy of a project. 
+Make a fork is get a remote personal copy of a project. 
 
 Go to main page of the repo you want to colaborate with, and click the Fork button in the top-right corner. 
 
@@ -16,7 +16,7 @@ Go to main page of the repo you want to colaborate with, and click the Fork butt
 
 ### Clone the fork of the project locally:
 
-Do a clone is create a local copy. 
+Make a clone is create a local copy. 
 
 open a terminal:
 
