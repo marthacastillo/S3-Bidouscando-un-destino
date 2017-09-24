@@ -339,3 +339,13 @@ git commit myfile COPIES from worktree to both stage and HEAD:
 
 https://github.com/AeroPython/PyFME/wiki/Tutorial-paso-a-paso-del-flujo-de-trabajo
 
+### Don’t type your password every time
+
+
+Don’t type your password every time
+
+
+If you don’t want to type it every single time you push, you can set up a “credential cache”. The simplest is just to keep it in memory for a few minutes, which you can easily set up by running:
+
+`git config --global credential.helper cache` 
+
